@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Is there a power cut or an outage where you are? tell your network company and other people.">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable = no">
+  <title>⚡ Power's out? ⚡ Power cuts & outages</title>
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="manifest" href="/manifest.json">
+
+  <meta name="theme-color" content="#FF5722">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Power's out?">
+
+  <link rel="icon" sizes="32x32" href="/images/favicon/favicon-72.png">
+
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Power's out?">
+
+
+  <link rel="shortcut icon" href="/images/favicon/favicon-72.png">
+  <link rel="apple-touch-icon" href="/images/touch/homescreen48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/touch/homescreen72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="/images/touch/homescreen96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/touch/homescreen144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/images/touch/homescreen192.png">
+
+
+  <meta name="msapplication-TileImage" content="/images/touch/homescreen144.png">
+  <meta name="msapplication-TileColor" content="#FF5722">
+  <meta name="msapplication-tap-highlight" content="no">
+
+
+  <meta itemprop="name" content="⚡ Power's out? ⚡ Power cuts & outages">
+  <meta itemprop="description" content="Is there a power cut or an outage where you are? tell your network company and other people.">
+  <meta itemprop="image" content="/images/outages-social.png">
+
+  <meta property="og:title" content="⚡ Power's out? ⚡ Power cuts & outages">
+  <meta property="og:site_name" content="Power's out?">
+  <meta property="og:type" content="WebSite">
+  <meta property="og:url" content="https://powersout.samlaw.co.nz/">
+  <meta property="og:description" content="Is there a power cut or an outage where you are? tell your network company and other people.">
+  <meta property="og:type" content="Event">
+  <meta property="og:image" content="/images/outages-social.png">
+
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@samlaw">
+  <meta name="twitter:title" content="⚡ Power's out? ⚡ Power cuts & outages">
+  <meta name="twitter:description" content="Is there a power cut or an outage where you are? tell your network company and other people.">
+  <meta name="twitter:image" content="/images/outages-social.png">
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "Power's out?",
+      "description": "Is there a power cut or an outage where you are? tell your network company and other people.",
+      "url": "https://powersout.samlaw.co.nz/"
+    }
+  </script>
+
+  <script>
+
+    // setup Polymer options
+    window.Polymer = {lazyRegister: true, dom: 'shadow'};
+
+    // load webcomponents polyfills
+    (function() {
+      if ('registerElement' in document
+          && 'import' in document.createElement('link')
+          && 'content' in document.createElement('template')) {
+        // browser has web components
+      } else {
+        // polyfill web components
+        var e = document.createElement('script');
+        e.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
+        document.head.appendChild(e);
+      }
+    })();
+
+    // load pre-caching service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js');
+      });
+    }
+
+  </script>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <style>
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      line-height: 1.5;
+      min-height: 100vh;
+      background-color: #eee;
+    }
+
+  </style>
+
+  <link rel="import" href="/src/app-shell.html">
+
+</head>
+<body>
+  <app-shell></app-shell>
+ <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+ <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC7aWcjBNGNoPsCh7SzQ4IwRR2_esBzKVU",
+    authDomain: "project-8588181882206597530.firebaseapp.com",
+    databaseURL: "https://project-8588181882206597530.firebaseio.com",
+    storageBucket: "project-8588181882206597530.appspot.com",
+  };
+  firebase.initializeApp(config);
+
+  // Get a reference to the database service
+  var database = firebase.database();
+ </script>
+</body>
+</html>

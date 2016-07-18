@@ -1,0 +1,122 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/paper-progress/paper-progress.html">
+
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="../bower_components/firebase-element/firebase-collection.html">
+<link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+
+<dom-module id="network-regions">
+
+  <template>
+
+    <style is="custom-style">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      .card {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        margin: 24px;
+        border-radius: 5px;
+        background-color: #fff;
+        color: #757575;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #212121;
+      }
+      paper-progress {
+        --paper-progress-active-color: #FF9E80;
+      }
+      paper-card.white {
+        --paper-card-header-color: #fff;
+      }
+      #license {
+        font-size: 10px;
+        color: grey;
+      }
+      #container {
+        padding: 0;
+        margin: 24px;
+        position: relative;
+      }
+      #container > paper-card {
+        margin: 4px;
+        width: calc(100% - 12px);
+      }
+      .card-content {
+        font-size:12px;
+      }
+      @media (min-width: 900px){
+        #container > paper-card {
+          width: calc((100%/2) - 12px);
+        }
+      }
+      @media (min-width: 1300px){
+        #container > paper-card {
+          width: calc((100%/3) - 12px);
+        }
+      }
+    </style>
+
+    <div class="card">
+      <h1>Do you have a power cut or outage?</h1>
+      <p>Get in touch with the power network company for your region. They can tell you if it's a widespread outage or a local fault.</p>
+    </div>
+
+
+    <div id="container">
+      <template is="dom-bind">
+        <firebase-collection
+          order-by-child="vertical-order"
+          order-value-type="number"
+          location="https://project-8588181882206597530.firebaseio.com/regions"
+          data="{{liveRegions}}">
+        </firebase-collection>
+        <app-indexeddb-mirror
+          key="regions"
+          data="{{liveRegions}}"
+          persisted-data="{{persistedRegions}}">
+        </app-indexeddb-mirror>
+        <template is="dom-repeat" items="[[persistedRegions]]" as="regions" initial-count="3" target-framerate="60">
+          <paper-card class="white" heading="[[regions.__firebaseKey__]]" placeholder="images/regions/loading.svg" pre-load-image="true" fade-image="true" image="images/regions/[[regions.iso3166-2]].svg">
+            <div class="card-actions">
+              <a href="/network-region/[[regions.slug]]" tabindex="-1">
+                <paper-button>View networks</paper-button>
+              </a>
+            </div>
+          </paper-card>
+  	    </template>
+      </template>
+
+      <div id="license">
+        <p>Maps courtesy of http://pixelmap.amcharts.com/ licensed under the Creative Commons Attribution 4.0 International License.
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+
+    Polymer ({
+
+      is: 'network-regions'
+
+    });
+
+  </script>
+
+</dom-module>

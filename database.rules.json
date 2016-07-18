@@ -1,0 +1,6 @@
+{
+  "regions": {
+    ".indexOn": ["vertical-order","island"]
+  },
+  ".read": true
+}

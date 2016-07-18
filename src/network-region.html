@@ -1,0 +1,41 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+
+<link rel="import" href="../bower_components/firebase-element/firebase-collection.html">
+<link rel="import" href="../bower_components/app-storage/app-indexeddb-mirror/app-indexeddb-mirror.html">
+
+<dom-module id="network-region">
+
+  <template>
+
+    <style is="custom-style">
+      :host {
+        display: block;
+        padding: 10px;
+      }
+      h1 {
+        font-size: 22px;
+        margin: 16px 0;
+        color: #212121;
+      }
+    </style>
+    <app-route route="{{route}}" pattern="/network-region/:region" data="{{routeData}}" tail="{{subRoute}}"></app-route>
+
+    <paper-card class="white">
+      <h1>something {{routeData.region}}</h1>
+    </paper-card>
+
+  </template>
+
+  <script>
+
+    Polymer ({
+
+      is: 'network-region'
+
+    });
+
+  </script>
+
+</dom-module>
